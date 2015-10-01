@@ -1,0 +1,43 @@
+<header id="header">
+    <div role="navigation" bs-navbar="" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a ui-sref="home" class="navbar-brand text-muted" href="#/home">SciamlabWebTemplate</a>
+                <button type="button" ng-click="collapse = !collapse" class="navbar-toggle" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="top-nav-collapse" ng-class="{in: collapse}" class="collapse navbar-collapse" >
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active: active=='home'}">
+                        <a ui-sref="home">Home</a>
+                    </li>
+                    <li ng-if="isAuthenticated() && isUserInRole('admin')" ng-class="{active: active=='admin'}">
+                        <a ui-sref="admin">Admin</a>
+                    </li>
+                </ul>
+                <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-sm-right" >
+                    <li ng-class="{active: active=='login'}">
+                        <a ui-sref="login">Login</a>
+                    </li>
+                    <li ng-class="{active: active=='signup'}">
+                        <a ui-sref="signup">Sign up</a>
+                    </li>
+                </ul>
+                <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-sm-right">
+                    <li ng-class="{active: active=='profile'}">
+                        <a ui-sref="profile">
+                            <i class="fa fa-{{getUser().user_type}}{{getUser().user_type=='google' | iif : '-plus' : ''}}-square fa-lg" 
+                               ng-show="getUser().user_type!='local'" style="margin-right:5px"></i> {{getUser().display_name}}
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

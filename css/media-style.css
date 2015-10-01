@@ -1,0 +1,34 @@
+/* Extra small devices (phones, less than 768px) */
+.pull-xs-left {
+    float: none !important;
+}
+.pull-xs-right {
+    float: right !important;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .pull-sm-left {
+        float: none !important;
+    }
+    .pull-sm-right {
+        float: right !important;
+    }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .pull-md-left {
+        float: none !important;
+    }
+    .pull-md-right {
+        float: right !important;
+    }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .pull-lg-left {
+        float: none !important;
+    }
+    .pull-lg-right {
+        float: right !important;
+    }
+}

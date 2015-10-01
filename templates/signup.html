@@ -1,0 +1,52 @@
+<div class="container signup">
+    <div class="row">
+        <div class="center-form panel">
+            <div class="panel-body">
+                <h2 class="text-center">Sign up</h2>
+                <form name="registrationForm" ng-submit="submitSignup(form)" role="form" ng-init="orm = {}">
+                    <div class="form-group" 
+                         ng-class="{ 'has-error' : registrationForm.firstNameField.$dirty && registrationForm.firstNameField.$invalid }">
+                        <label class="control-label">First name</label>
+                        <input type="text" name="firstNameField" ng-model="form.first_name" class="form-control input-lg" required autofocus/>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : registrationForm.lastNameField.$dirty && registrationForm.lastNameField.$invalid }">
+                        <label class="control-label">Last name</label>
+                        <input type="text" name="lastNameField" ng-model="form.last_name" class="form-control input-lg" required />
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : registrationForm.emailField.$dirty && registrationForm.emailField.$invalid }">
+                        <label class="control-label">Email</label>
+                        <input type="email" name="emailField" ng-model="form.email" class="form-control input-lg" required />
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : registrationForm.passwordField.$dirty && registrationForm.passwordField.$invalid }">
+                        <label class="control-label">Password</label>
+                        <input type="password" name="passwordField" ng-model="form.password" class="form-control input-lg" required password-strength/>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : registrationForm.passwordConfirmationField.$dirty && registrationForm.passwordConfirmationField.$invalid }">
+                        <label class="control-label">Password confirmation</label>
+                        <input type="password" name="passwordConfirmationField" class="form-control input-lg" ng-model="form.password_confirm" 
+                               required password-match="form.password"/>
+                    </div>
+                    <p class="text-center text-muted"><small>By clicking on Sign up, you agree to <a href="#">terms & conditions</a> and <a href="#">privacy policy</a></small></p>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-block btn-primary" ng-disabled="registrationForm.$invalid">Register</button>
+                    </div>
+                    <div ng-show="error" class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Error!</strong> {{error.msg}}
+                    </div>
+                    <div>
+                        <p class="text-center text-muted">Already have an account? <a ui-sref="login">Log in now</a></p>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

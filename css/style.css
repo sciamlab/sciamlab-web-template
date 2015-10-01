@@ -1,0 +1,67 @@
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#content{
+	padding-top:70px;      /* Height of the header element */
+	padding-bottom:50px;   /* Height of the footer element */
+}
+
+footer{
+    height: 50px;
+	position:absolute;
+	bottom:0;
+	left:0;
+    width:100%;
+    margin-top: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.signup > div > div > div > form p{
+    padding: 0 10px;
+}
+.signup > div > div > div h2, .login > div > div > div h2{
+    margin-top: 0px;
+}
+
+.login .or-separator {
+  position: relative;
+  height: 34px;
+  text-align: center;
+  background: none;
+}
+.login .or-separator .text {
+  display: inline-block;
+  padding: 8px;
+  margin: 0;
+  background-color: #fff;
+}
+.login .or-separator hr {
+  width: 90%;
+  margin: -16px auto 10px auto;
+  border-top: 1px solid #dce0e0;
+}
+
+.center-form {
+  width: 320px;
+  margin: auto;
+}
+
+.password-strength-indicator {
+    float: right;
+    margin: -35px 10px 0 0;
+}
+.password-strength-indicator span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin-bottom: 2px;
+    background: #ebeef1;
+    border-radius: 5px;
+}

@@ -1,0 +1,102 @@
+<div class="container profile">
+    <div class="panel panel-default">
+        <div class="panel-heading">Profile</div>
+        <div class="panel-body">
+            <legend>
+                Edit my profile
+            </legend>
+            <form method="post" ng-submit="updateProfile()" ng-init="form = user">
+                <div class="form-group">
+                    <label class="control-label">
+                        <i class="ion-person"></i> First Name
+                    
+                    </label>
+                    <input type="text" class="form-control input-lg" ng-model="form.first_name"  ng-disabled="{{isSocial()}}">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <i class="ion-person"></i> Last Name
+                    
+                        </label>
+                        <input type="text" class="form-control input-lg" ng-model="form.last_name"  ng-disabled="{{isSocial()}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <i class="ion-at"></i> Email Address
+                    
+                        </label>
+                        <input type="email" class="form-control input-lg" ng-model="form.email" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <i class="ion-at"></i> Roles
+                    
+                        </label>
+                        <input type="text" class="form-control input-lg" ng-model="form.roles" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <i class="ion-at"></i> Password
+                    
+                        </label>
+                        <input type="password" class="form-control input-lg" ng-model="form.password" ng-disabled="{{isSocial()}}"  password-strength/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <i class="ion-at"></i> Confirm Password
+                    
+                        </label>
+                        <input type="password" class="form-control input-lg" ng-model="form.password_confirm" ng-disabled="{{isSocial()}}" 
+                           password-match="form.password"/>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-success" ng-disabled="{{isSocial()}} || profileForm.$invalid">Update your information</button>
+                    </div>
+                    <div ng-show="error" class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Error!</strong> {{error.msg}}
+                
+                    </div>
+                    <div ng-show="success" class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Success!</strong> {{success}}
+                
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">Danger zone</div>
+            <div class="panel-body">
+                <legend>
+                    <i class="ion-clipboard"></i> Delete account
+            
+                </legend>
+                <button class="btn btn-lg btn-danger" ng-click="modalDelete()">Delete your account</button>
+                
+                <script type="text/ng-template" id="modal-delete.html">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-delete-label">Confirm before proceed</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Closing your account will delete all your personal data!</p>
+                        <p>You will not be able to undo that operation.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-lg btn-danger" ng-click="delete()">Delete your account</button>
+                        <button class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+                        <div ng-show="error" class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Error!</strong> {{error_delete.msg}}
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
