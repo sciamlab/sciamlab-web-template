@@ -11,5 +11,8 @@
     "angular-local-storage": "~0.1.5",
     "font-awesome": "~4.3.0",
     "bootstrap-social": "~4.9.0"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
   }
 }
