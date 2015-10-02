@@ -29,7 +29,7 @@
                 <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-sm-right">
                     <li ng-class="{active: active=='profile'}">
                         <a ui-sref="profile">
-                            <i class="fa fa-{{getUser().user_type}}{{getUser().user_type=='google' | iif : '-plus' : ''}}-square fa-lg" 
+                            <i class="fa fa-{{getUser().user_type=='gplus' | iif : 'google-plus' : getUser().user_type}}-square fa-lg" 
                                ng-show="getUser().user_type!='local'" style="margin-right:5px"></i> {{getUser().display_name}}
                         </a>
                     </li>
